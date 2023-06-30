@@ -1,0 +1,28 @@
+name: Dummy Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      variable1:
+        description: 'Variable 1'
+        required: true
+        default: 'Default value 1'
+      variable2:
+        description: 'Variable 2'
+        required: true
+        default: 'Default value 2'
+      variable3:
+        description: 'Variable 3'
+        required: true
+        default: 'Default value 3'
+
+jobs:
+  print_variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Variables
+        run: |
+          echo "Variable 1: ${{ github.event.inputs.variable1 }}"
+          echo "Variable 2: ${{ github.event.inputs.variable2 }}"
+          echo "Variable 3: ${{ github.event.inputs.variable3 }}"
